@@ -1,0 +1,33 @@
+buildscript {
+	ext {
+		slf4jVersion = "1.7.12"
+		log4jVersion = "2.11.0"
+		
+		libraries = [
+			slf4j: "org.slf4j:slf4j-api:${slf4jVersion}",
+	        log4j: [
+	        	"org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}",
+	        	"org.apache.logging.log4j:log4j-api:${log4jVersion}",
+	        	"org.apache.logging.log4j:log4j-core:${log4jVersion}"
+	        ]
+		]
+	}
+}
+
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+
+	implementation libraries.slf4j
+	implementation libraries.log4j
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    jcenter()
+}
